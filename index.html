@@ -20,7 +20,7 @@
         nav a { margin-left: 20px; text-decoration: none; color: var(--text-color); font-weight: 550; }
         nav a:hover { color: var(--accent-color); }
 
-        /* 상단 자동 슬라이드 배너 영역 */
+        /* 상단 자동 슬라이드 배너 */
         .hero { position: relative; height: 450px; color: white; text-align: center; overflow: hidden; display: flex; align-items: center; justify-content: center; }
         .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 1s ease-in-out; z-index: 1; }
         .slide.active { opacity: 1; }
@@ -29,23 +29,23 @@
         .hero h1 { font-size: 38px; margin-bottom: 20px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
         .hero p { font-size: 18px; margin-bottom: 30px; opacity: 0.95; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
         
-        .btn { display: inline-block; background-color: var(--accent-color); color: white; padding: 12px 30px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: 0.2s; cursor: pointer; border: none; }
+        .btn { display: inline-block; background-color: var(--accent-color); color: white; padding: 10px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: 0.2s; cursor: pointer; border: none; text-align: center; }
         .btn:hover { background-color: #b7791f; }
 
         /* 섹션 공통 */
         section { padding: 60px 8%; border-bottom: 1px solid #edf2f7; }
         .section-title { font-size: 26px; margin-bottom: 30px; color: var(--primary-color); border-left: 5px solid var(--accent-color); padding-left: 15px; }
 
-        /* 4대 메인 카테고리 (이미지 포함 카드) */
+        /* 주요 렌탈 카테고리 4분할 그리드 */
         .main-categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; }
-        .cat-main-card { background: var(--bg-light); border-radius: 10px; overflow: hidden; border: 1px solid #e2e8f0; transition: 0.3s; cursor: pointer; text-decoration: none; color: inherit; display: block; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+        .cat-main-card { background: var(--bg-light); border-radius: 10px; overflow: hidden; border: 1px solid #e2e8f0; transition: 0.3s; display: flex; flex-direction: column; box-shadow: 0 2px 4px rgba(0,0,0,0.02); text-decoration: none; color: inherit; }
         .cat-main-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); border-color: var(--accent-color); }
-        .cat-img { width: 100%; height: 160px; object-fit: cover; background-color: #cbd5e0; }
-        .cat-info { padding: 20px; text-align: center; }
+        .cat-img { width: 100%; height: 170px; object-fit: cover; background-color: #cbd5e0; }
+        .cat-info { padding: 20px; text-align: center; display: flex; flex-direction: column; align-items: center; flex-grow: 1; justify-content: space-between; }
         .cat-info h3 { font-size: 20px; margin-bottom: 8px; color: var(--primary-color); }
         .cat-info p { font-size: 14px; color: #718096; margin-bottom: 15px; }
 
-        /* 상품 카드 그리드 (각 카테고리별 상품 10개 진열) */
+        /* 각 카테고리별 상품 카드 그리드 (10개씩) */
         .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
         .product-card { background: white; border-radius: 8px; border: 1px solid #e2e8f0; overflow: hidden; transition: 0.3s; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
         .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0,0,0,0.08); }
@@ -77,7 +77,7 @@
 </head>
 <body>
 
-    <!-- 헤더 칸 -->
+    <!-- 헤더 -->
     <header>
         <a href="#" class="logo">원가구렌탈</a>
         <nav>
@@ -90,7 +90,8 @@
         </nav>
     </header>
 
-    <!-- 상단 자동 슬라이드 배너 칸 -->
+    <!-- 상단 자동 슬라이드 배너 -->
+    .hero { position: relative; height: 450px; color: white; text-align: center; overflow: hidden; display: flex; align-items: center; justify-content: center; }
     <div class="hero">
         <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1600&q=80');"></div>
         <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80');"></div>
@@ -104,21 +105,13 @@
         </div>
     </div>
 
-    <!-- 주요 렌탈 카테고리 (이미지 카드 4분할) -->
+    <!-- 주요 렌탈 카테고리 4분할 (클릭 시 해당 상품 목록으로 이동) -->
     <section id="categories">
         <h2 class="section-title">주요 렌탈 카테고리</h2>
         <div class="main-categories">
-            <a href="#office" class="cat-main-card">
+            <div class="cat-main-card">
                 <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" class="cat-img" alt="사무용가구">
                 <div class="cat-info">
-                    <h3>사무용 가구</h3>
-                    <p>책상, 회의테이블, 의자 및 파티션</p>
-                    <span class="btn" style="padding: 6px 15px; font-size: 13px;">상품 보기</span>
-                </div>
-            </a>
-            <a href="#cafe" class="cat-main-card">
-                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80" class="cat-img" alt="업소카페가구">
-                <div class="cat-info">
-                    <h3>업소 / 카페 가구</h3>
-                    <p>식당 테이블, 바 체어, 원목 식탁</p>
-                    <span class="btn" style="padding: 6px 15px
+                    <div>
+                        <h3>사무용 가구</h3>
+                        <p>
