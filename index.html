@@ -29,25 +29,37 @@
         .hero h1 { font-size: 38px; margin-bottom: 20px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
         .hero p { font-size: 18px; margin-bottom: 30px; opacity: 0.95; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
         
-        .btn { display: inline-block; background-color: var(--accent-color); color: white; padding: 12px 30px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: 0.2s; }
+        .btn { display: inline-block; background-color: var(--accent-color); color: white; padding: 12px 30px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: 0.2s; cursor: pointer; border: none; }
         .btn:hover { background-color: #b7791f; }
 
         /* 섹션 공통 */
-        section { padding: 80px 10%; }
-        .section-title { text-align: center; font-size: 28px; margin-bottom: 50px; color: var(--primary-color); }
+        section { padding: 60px 8%; border-bottom: 1px solid #edf2f7; }
+        .section-title { font-size: 26px; margin-bottom: 30px; color: var(--primary-color); border-left: 5px solid var(--accent-color); padding-left: 15px; }
 
-        /* 카테고리 그리드 (칸 나누기) */
-        .categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-        .cat-card { background: var(--bg-light); padding: 30px; text-align: center; border-radius: 8px; border: 1px solid #e2e8f0; transition: 0.3s; }
-        .cat-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
-        .cat-card h3 { margin-bottom: 10px; color: var(--primary-color); }
+        /* 상품 카드 그리드 (칸 나누기 - 여러 개 추가 가능) */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+        .product-card { background: white; border-radius: 8px; border: 1px solid #e2e8f0; overflow: hidden; transition: 0.3s; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0,0,0,0.08); }
+        .product-img { width: 100%; height: 160px; object-fit: cover; background-color: #e2e8f0; }
+        .product-info { padding: 15px; }
+        .product-info h4 { font-size: 16px; margin-bottom: 5px; color: var(--primary-color); }
+        .product-info p { font-size: 13px; color: #718096; }
+
+        /* 상세 팝업 모달창 */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; justify-content: center; align-items: center; }
+        .modal-content { background: white; width: 90%; max-width: 600px; border-radius: 10px; padding: 30px; position: relative; box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer; color: #a0aec0; }
+        .close-btn:hover { color: var(--text-color); }
+        .modal-img { width: 100%; height: 280px; object-fit: cover; border-radius: 6px; margin-bottom: 20px; }
+        .modal-title { font-size: 22px; color: var(--primary-color); margin-bottom: 10px; }
+        .modal-desc { font-size: 15px; color: #4a5568; line-height: 1.7; margin-bottom: 20px; }
 
         /* 견적 폼 섹션 */
-        .quote-section { background-color: var(--bg-light); border-top: 1px solid #e2e8f0; }
+        .quote-section { background-color: var(--bg-light); }
         form { max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
         .form-group { margin-bottom: 20px; }
         .form-group label { display: block; margin-bottom: 8px; font-weight: bold; }
-        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 10px; border: 1px solid #cbd5e0; border-radius: 4px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #cbd5e0; border-radius: 4px; }
         .form-group textarea { height: 120px; }
 
         /* 푸터 */
@@ -60,16 +72,16 @@
     <header>
         <a href="#" class="logo">원가구렌탈</a>
         <nav>
-            <a href="#about">회사소개</a>
-            <a href="#categories">렌탈 카테고리</a>
-            <a href="#portfolio">납품 사례</a>
-            <a href="#quote" style="color: var(--accent-color);">견적 문의</a>
+            <a href="#office">사무용가구</a>
+            <a href="#cafe">업소·카페</a>
+            <a href="#event">행사·이벤트</a>
+            <a href="#lobby">로비·휴게실</a>
+            <a href="#quote" style="color: var(--accent-color);">견적문의</a>
         </nav>
     </header>
 
-    <!-- 상단 자동 슬라이드 배너 칸 -->
+    <!-- 상단 자동 슬라이드 배너 -->
     <div class="hero">
-        <!-- 슬라이드 사진 4장 (원하시는 사진 주소로 나중에 변경 가능합니다) -->
         <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1600&q=80');"></div>
         <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80');"></div>
         <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=80');"></div>
@@ -82,69 +94,10 @@
         </div>
     </div>
 
-    <!-- 카테고리 칸 (4분할) -->
-    <section id="categories">
-        <h2 class="section-title">주요 렌탈 카테고리</h2>
-        <div class="categories">
-            <div class="cat-card">
-                <h3>사무용 가구</h3>
-                <p>책상, 회의테이블, 사무용 의자 및 파티션</p>
-            </div>
-            <div class="cat-card">
-                <h3>업소 / 카페 가구</h3>
-                <p>식당 테이블, 바 체어, 원목 및 대리석 식탁</p>
-            </div>
-            <div class="cat-card">
-                <h3>행사 / 이벤트용</h3>
-                <p>접이식 의자, 천막, 대형 테이블 세트</p>
-            </div>
-            <div class="cat-card">
-                <h3>로비 / 휴게실</h3>
-                <p>라운지 소파, 인포메이션 데스크</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 간편 견적 문의 칸 -->
-    <section id="quote" class="quote-section">
-        <h2 class="section-title">온라인 견적 문의</h2>
-        <form onsubmit="alert('견적 문의가 정상적으로 접수되었습니다. 확인 후 빠른 연락 드리겠습니다.'); return false;">
-            <div class="form-group">
-                <label>업체명 / 성함</label>
-                <input type="text" required placeholder="예: 원컴퍼니 / 홍길동">
-            </div>
-            <div class="form-group">
-                <label>연락처</label>
-                <input type="tel" required placeholder="010-0000-0000">
-            </div>
-            <div class="form-group">
-                <label>희망 렌탈 품목 및 기간</label>
-                <textarea required placeholder="필요하신 가구 품목, 수량 및 대여 기간을 적어주세요."></textarea>
-            </div>
-            <button type="submit" class="btn" style="width: 100%;">견적서 요청하기</button>
-        </form>
-    </section>
-
-    <!-- 푸터 칸 -->
-    <footer>
-        <p><strong>원가구렌탈</strong> | 대표전화: 031-000-0000 | 이메일: contact@wongagurental.com</p>
-        <p style="margin-top: 10px; opacity: 0.7;">Copyright © Won Furniture Rental. All rights reserved.</p>
-    </footer>
-
-    <!-- 자동 슬라이드 동작 자바스크립트 -->
-    <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-
-        function showNextSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
-
-        // 4초마다 사진이 부드럽게 바뀝니다
-        setInterval(showNextSlide, 4000);
-    </script>
-
-</body>
-</html>
+    <!-- 1. 사무용 가구 섹션 (10개 칸 예시) -->
+    <section id="office">
+        <h2 class="section-title">사무용 가구 (Office Furniture)</h2>
+        <div class="product-grid">
+            <!-- 상품 1 ~ 10 (원하시는 만큼 계속 복사해서 추가 가능) -->
+            <div class="product-card" onclick="openModal('프리미엄 전동 모션데스크', '높낮이 조절이 자유로운 스마트 오피스 책상입니다. 장시간 근무자의 피로도를 낮춰줍니다.', 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=800&q=80')">
+                <img src="
