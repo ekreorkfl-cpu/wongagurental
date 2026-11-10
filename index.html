@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>원가구렌탈 - 상업용·사무용 가구 맞춤 렌탈</title>
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --accent-color: #d69e2e;
+            --bg-light: #f7fafc;
+            --text-color: #2d3748;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; }
+        body { color: var(--text-color); line-height: 1.6; background-color: #fff; }
+        
+        /* 헤더 */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; background: white; z-index: 100; }
+        .logo { font-size: 24px; font-weight: bold; color: var(--primary-color); text-decoration: none; }
+        nav a { margin-left: 20px; text-decoration: none; color: var(--text-color); font-weight: 550; }
+        nav a:hover { color: var(--accent-color); }
+
+        /* 히어로 배너 */
+        .hero { background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(26, 54, 93, 0.8)), url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1600&q=80') center/cover; color: white; text-align: center; padding: 100px 20px; }
+        .hero h1 { font-size: 38px; margin-bottom: 20px; }
+        .hero p { font-size: 18px; margin-bottom: 30px; opacity: 0.9; }
+        .btn { display: inline-block; background-color: var(--accent-color); color: white; padding: 12px 30px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: 0.2s; }
+        .btn:hover { background-color: #b7791f; }
+
+        /* 섹션 공통 */
+        section { padding: 80px 10%; }
+        .section-title { text-align: center; font-size: 28px; margin-bottom: 50px; color: var(--primary-color); }
+
+        /* 카테고리 그리드 (칸 나누기) */
+        .categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .cat-card { background: var(--bg-light); padding: 30px; text-align: center; border-radius: 8px; border: 1px solid #e2e8f0; transition: 0.3s; }
+        .cat-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
+        .cat-card h3 { margin-bottom: 10px; color: var(--primary-color); }
+
+        /* 견적 폼 섹션 */
+        .quote-section { background-color: var(--bg-light); border-top: 1px solid #e2e8f0; }
+        form { max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 10px; border: 1px solid #cbd5e0; border-radius: 4px; }
+        .form-group textarea { height: 120px; }
+
+        /* 푸터 */
+        footer { background: var(--primary-color); color: white; text-align: center; padding: 40px; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <!-- 헤더 칸 -->
+    <header>
+        <a href="#" class="logo">원가구렌탈</a>
+        <nav>
+            <a href="#about">회사소개</a>
+            <a href="#categories">렌탈 카테고리</a>
+            <a href="#portfolio">납품 사례</a>
+            <a href="#quote" style="color: var(--accent-color);">견적 문의</a>
+        </nav>
+    </header>
+
+    <!-- 히어로 배너 칸 -->
+    <div class="hero">
+        <h1>공간의 가치를 높이는 맞춤 가구 렌탈</h1>
+        <p>사무실부터 대형 행사까지, 가장 합리적인 조건으로 프리미엄 가구를 제안합니다.</p>
+        <a href="#quote" class="btn">빠른 견적 신청하기</a>
+    </div>
+
+    <!-- 카테고리 칸 (4분할) -->
+    <section id="categories">
+        <h2 class="section-title">주요 렌탈 카테고리</h2>
+        <div class="categories">
+            <div class="cat-card">
+                <h3>사무용 가구</h3>
+                <p>책상, 회의테이블, 사무용 의자 및 파티션</p>
+            </div>
+            <div class="cat-card">
+                <h3>업소 / 카페 가구</h3>
+                <p>식당 테이블, 바 체어, 원목 및 대리석 식탁</p>
+            </div>
+            <div class="cat-card">
+                <h3>행사 / 이벤트용</h3>
+                <p>접이식 의자, 천막, 대형 테이블 세트</p>
+            </div>
+            <div class="cat-card">
+                <h3>로비 / 휴게실</h3>
+                <p>라운지 소파, 인포메이션 데스크</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 간편 견적 문의 칸 -->
+    <section id="quote" class="quote-section">
+        <h2 class="section-title">온라인 견적 문의</h2>
+        <form onsubmit="alert('견적 문의가 정상적으로 접수되었습니다. 확인 후 빠른 연락 드리겠습니다.'); return false;">
+            <div class="form-group">
+                <label>업체명 / 성함</label>
+                <input type="text" required placeholder="예: 원컴퍼니 / 홍길동">
+            </div>
+            <div class="form-group">
+                <label>연락처</label>
+                <input type="tel" required placeholder="010-0000-0000">
+            </div>
+            <div class="form-group">
+                <label>희망 렌탈 품목 및 기간</label>
+                <textarea required placeholder="필요하신 가구 품목, 수량 및 대여 기간을 적어주세요."></textarea>
+            </div>
+            <button type="submit" class="btn" style="width: 100%;">견적서 요청하기</button>
+        </form>
+    </section>
+
+    <!-- 푸터 칸 -->
+    <footer>
+        <p><strong>원가구렌탈</strong> | 대표전화: 031-000-0000 | 이메일: contact@wongagurental.com</p>
+        <p style="margin-top: 10px; opacity: 0.7;">Copyright © Won Furniture Rental. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
