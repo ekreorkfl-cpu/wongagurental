@@ -21,7 +21,7 @@
         nav a { text-decoration: none; color: var(--text-color); font-weight: 550; font-size: 13px; white-space: nowrap; }
         nav a:hover { color: var(--accent-color); }
 
-        /* 상단 자동 슬라이드 배너 */
+        /* 상단 자동 슬라이드 배너 - 행사 진열대/가벽 위주 이미지 */
         .hero { position: relative; height: 400px; color: white; text-align: center; overflow: hidden; display: flex; align-items: center; justify-content: center; }
         .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 1s ease-in-out; z-index: 1; }
         .slide.active { opacity: 1; }
@@ -101,24 +101,34 @@
         </nav>
     </header>
 
-    <!-- 상단 자동 슬라이드 배너 -->
+    <!-- 상단 자동 슬라이드 배너 - 행사 진열대/가벽 이미지 적용 -->
     <div class="hero">
-        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1600&q=80');"></div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80');"></div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=80');"></div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80');"></div>
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1596526131083-e8c633c948d2?auto=format&fit=crop&w=1600&q=80');"></div> <!-- 행사용 진열대 1 -->
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1582213713723-39328a6f987a?auto=format&fit=crop&w=1600&q=80');"></div> <!-- 깔끔한 부스 가벽 -->
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1600&q=80');"></div> <!-- 전시회 부스 전경 -->
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1600&q=80');"></div> <!-- 인포메이션 데스크 및 진열대 -->
 
         <div class="hero-content">
-            <h1>공간의 가치를 높이는 맞춤 가구 렌탈</h1>
-            <p>사무실부터 대형 행사까지, 가장 합리적인 조건으로 프리미엄 가구를 제안합니다.</p>
+            <h1>성공적인 행사를 위한 맞춤 가구 렌탈</h1>
+            <p>다양한 스타일의 행사용 진열대, 가벽, 테이블, 의자를 합리적인 조건으로 제안합니다.</p>
             <a href="#quote" class="btn">빠른 견적 신청하기</a>
         </div>
     </div>
 
-    <!-- 주요 렌탈 카테고리 4분할 -->
+    <!-- 주요 렌탈 카테고리 4분할 - 행사 카테고리를 강조 -->
     <section id="categories">
         <h2 class="section-title">주요 렌탈 카테고리</h2>
         <div class="main-categories">
+            <div class="cat-main-card">
+                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=80" class="cat-img" alt="행사용부스">
+                <div class="cat-info">
+                    <div>
+                        <h3>행사 / 이벤트용</h3>
+                        <p>접이식 의자, 천막, 대형 테이블, 진열대, 가벽</p>
+                    </div>
+                    <a href="#event" class="btn" style="padding: 8px 20px; font-size: 13px;">상품 보기</a>
+                </div>
+            </div>
             <div class="cat-main-card">
                 <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" class="cat-img" alt="사무용가구">
                 <div class="cat-info">
@@ -140,16 +150,6 @@
                 </div>
             </div>
             <div class="cat-main-card">
-                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=600&q=80" class="cat-img" alt="행사용가구">
-                <div class="cat-info">
-                    <div>
-                        <h3>행사 / 이벤트용</h3>
-                        <p>접이식 의자, 천막, 대형 테이블 세트</p>
-                    </div>
-                    <a href="#event" class="btn" style="padding: 8px 20px; font-size: 13px;">상품 보기</a>
-                </div>
-            </div>
-            <div class="cat-main-card">
                 <img src="https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&fit=crop&w=600&q=80" class="cat-img" alt="로비휴게실가구">
                 <div class="cat-info">
                     <div>
@@ -163,6 +163,11 @@
     </section>
 
     <!-- 구글 시트 상품 자동 출력 구역 -->
+    <section id="event">
+        <h2 class="section-title">행사 / 이벤트용 가구 (Events)</h2>
+        <div id="event-grid" class="product-grid">데이터를 불러오는 중입니다...</div>
+    </section>
+    
     <section id="office">
         <h2 class="section-title">사무용 가구 (Office Furniture)</h2>
         <div id="office-grid" class="product-grid">데이터를 불러오는 중입니다...</div>
@@ -171,11 +176,6 @@
     <section id="cafe">
         <h2 class="section-title">업소 / 카페 가구 (Cafe & Restaurant)</h2>
         <div id="cafe-grid" class="product-grid">데이터를 불러오는 중입니다...</div>
-    </section>
-
-    <section id="event">
-        <h2 class="section-title">행사 / 이벤트용 가구 (Events)</h2>
-        <div id="event-grid" class="product-grid">데이터를 불러오는 중입니다...</div>
     </section>
 
     <section id="lobby">
@@ -197,7 +197,7 @@
             </div>
             <div class="form-group">
                 <label>희망 렌탈 품목 및 기간</label>
-                <textarea required placeholder="필요하신 가구 품목, 수량 및 대여 기간을 적어주세요."></textarea>
+                <textarea required placeholder="필요하신 가구 품목, 수량 및 대여 기간을 적어주세요. 예: 행사용 진열대 5개, 가벽 10m / 3일간 대여"></textarea>
             </div>
             <button type="submit" class="btn" style="width: 100%;">견적서 요청하기</button>
         </form>
@@ -221,7 +221,7 @@
         <p style="margin-top: 8px; opacity: 0.7;">Copyright © Won Furniture Rental. All rights reserved.</p>
     </footer>
 
-    <!-- 자바스크립트: 구글 시트 연동 로직 -->
+    <!-- 자바스크립트: 구글 시트 연동 로직 (ID 적용 완료) -->
     <script>
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
@@ -247,14 +247,15 @@
             if (event.target == modal) { modal.style.display = 'none'; }
         }
 
-        // 구글 시트 데이터 자동 불러오기 (ID 적용 완료)
         async function loadGoogleSheetData() {
+            // 조은님이 알려주신 구글 시트 ID가 적용되었습니다!
             const sheetId = '12E6edU9-tfx7MsOZiTy5fVGpfgZ8UGjzDIlj_6wzI6g';
             const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json`;
 
             try {
                 const response = await fetch(url);
                 const text = await response.text();
+                // 구글 시트 JSON 데이터를 JSON 객체로 파싱합니다.
                 const json = JSON.parse(text.substring(47).slice(0, -2));
                 const rows = json.table.rows;
 
@@ -264,14 +265,17 @@
                 let lobbyHtml = '';
 
                 rows.forEach(row => {
+                    // 구글 시트의 데이터를 각 변수에 저장합니다.
                     const category = row.c[0] ? row.c[0].v : '';
                     const title = row.c[1] ? row.c[1].v : '';
                     const spec = row.c[2] ? row.c[2].v : '';
                     const desc = row.c[3] ? row.c[3].v : '';
                     const img = row.c[4] ? row.c[4].v : '';
 
+                    // 상품 이름이 없으면 그 행은 건너뜁니다.
                     if (!title) return;
 
+                    // 상품 카드 HTML 코드를 생성합니다.
                     const card = `
                         <div class="product-card" onclick="openModal('${title}', '${spec}', '${desc}', '${img}')">
                             <img src="${img}" class="product-img" alt="${title}">
@@ -283,12 +287,14 @@
                         </div>
                     `;
 
+                    // 각 카테고리에 맞는 상품 카드 HTML 코드를 추가합니다.
                     if (category === 'office') officeHtml += card;
                     else if (category === 'cafe') cafeHtml += card;
                     else if (category === 'event') eventHtml += card;
                     else if (category === 'lobby') lobbyHtml += card;
                 });
 
+                // 각 카테고리별 상품 그리드에 HTML 코드를 적용합니다.
                 document.getElementById('office-grid').innerHTML = officeHtml || '<p>등록된 상품이 없습니다.</p>';
                 document.getElementById('cafe-grid').innerHTML = cafeHtml || '<p>등록된 상품이 없습니다.</p>';
                 document.getElementById('event-grid').innerHTML = eventHtml || '<p>등록된 상품이 없습니다.</p>';
