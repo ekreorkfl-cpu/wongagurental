@@ -221,7 +221,7 @@
         <p style="margin-top: 8px; opacity: 0.7;">Copyright © Won Furniture Rental. All rights reserved.</p>
     </footer>
 
-    <!-- 자바스크립트 -->
+    <!-- 자바스크립트: 구글 시트 연동 로직 -->
     <script>
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
@@ -246,6 +246,60 @@
             let modal = document.getElementById('productModal');
             if (event.target == modal) { modal.style.display = 'none'; }
         }
+
+        // 구글 시트 데이터 자동 불러오기 (ID 적용 완료)
+        async function loadGoogleSheetData() {
+            const sheetId = '12E6edU9-tfx7MsOZiTy5fVGpfgZ8UGjzDIlj_6wzI6g';
+            const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json`;
+
+            try {
+                const response = await fetch(url);
+                const text = await response.text();
+                const json = JSON.parse(text.substring(47).slice(0, -2));
+                const rows = json.table.rows;
+
+                let officeHtml = '';
+                let cafeHtml = '';
+                let eventHtml = '';
+                let lobbyHtml = '';
+
+                rows.forEach(row => {
+                    const category = row.c[0] ? row.c[0].v : '';
+                    const title = row.c[1] ? row.c[1].v : '';
+                    const spec = row.c[2] ? row.c[2].v : '';
+                    const desc = row.c[3] ? row.c[3].v : '';
+                    const img = row.c[4] ? row.c[4].v : '';
+
+                    if (!title) return;
+
+                    const card = `
+                        <div class="product-card" onclick="openModal('${title}', '${spec}', '${desc}', '${img}')">
+                            <img src="${img}" class="product-img" alt="${title}">
+                            <div class="product-info">
+                                <h4>${title}</h4>
+                                <p style="color:var(--accent-color); font-weight:bold; margin-bottom:2px;">${spec}</p>
+                                <p>${desc.substring(0, 20)}...</p>
+                            </div>
+                        </div>
+                    `;
+
+                    if (category === 'office') officeHtml += card;
+                    else if (category === 'cafe') cafeHtml += card;
+                    else if (category === 'event') eventHtml += card;
+                    else if (category === 'lobby') lobbyHtml += card;
+                });
+
+                document.getElementById('office-grid').innerHTML = officeHtml || '<p>등록된 상품이 없습니다.</p>';
+                document.getElementById('cafe-grid').innerHTML = cafeHtml || '<p>등록된 상품이 없습니다.</p>';
+                document.getElementById('event-grid').innerHTML = eventHtml || '<p>등록된 상품이 없습니다.</p>';
+                document.getElementById('lobby-grid').innerHTML = lobbyHtml || '<p>등록된 상품이 없습니다.</p>';
+
+            } catch (e) {
+                console.log("데이터 로딩 중...", e);
+            }
+        }
+
+        loadGoogleSheetData();
     </script>
 </body>
 </html>
