@@ -14,7 +14,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; }
         body { color: var(--text-color); line-height: 1.6; background-color: #fff; scroll-behavior: smooth; }
         
-        /* 헤더 (모바일 대응 가로 정렬 고정) */
+        /* 헤더 */
         header { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; background: white; z-index: 100; flex-wrap: wrap; gap: 10px; }
         .logo { font-size: 20px; font-weight: bold; color: var(--primary-color); text-decoration: none; white-space: nowrap; }
         nav { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -46,7 +46,7 @@
         .cat-info h3 { font-size: 18px; margin-bottom: 6px; color: var(--primary-color); }
         .cat-info p { font-size: 13px; color: #718096; margin-bottom: 12px; }
 
-        /* 각 카테고리별 상품 카드 그리드 (10개씩) */
+        /* 상품 그리드 칸 */
         .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; }
         .product-card { background: white; border-radius: 6px; border: 1px solid #e2e8f0; overflow: hidden; transition: 0.3s; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
         .product-card:hover { transform: translateY(-3px); box-shadow: 0 8px 12px rgba(0,0,0,0.08); }
@@ -62,6 +62,7 @@
         .close-btn:hover { color: var(--text-color); }
         .modal-img { width: 100%; height: 220px; object-fit: cover; border-radius: 6px; margin-bottom: 15px; }
         .modal-title { font-size: 20px; color: var(--primary-color); margin-bottom: 8px; }
+        .modal-spec { font-size: 13px; font-weight: bold; color: var(--accent-color); margin-bottom: 10px; }
         .modal-desc { font-size: 14px; color: #4a5568; line-height: 1.6; margin-bottom: 20px; }
 
         /* 견적 폼 섹션 */
@@ -75,7 +76,6 @@
         /* 푸터 */
         footer { background: var(--primary-color); color: white; text-align: center; padding: 30px 20px; font-size: 13px; word-break: keep-all; }
 
-        /* PC 화면에서는 글씨 크기를 더 시원하게 조절 */
         @media (min-width: 768px) {
             .logo { font-size: 24px; }
             nav a { font-size: 15px; margin-left: 15px; }
@@ -162,192 +162,25 @@
         </div>
     </section>
 
-    <!-- 1. 사무용 가구 섹션 (10개 상품) -->
+    <!-- 구글 시트 상품 자동 출력 구역 -->
     <section id="office">
         <h2 class="section-title">사무용 가구 (Office Furniture)</h2>
-        <div class="product-grid">
-            <div class="product-card" onclick="openModal('전동 모션데스크', '높낮이 조절이 자유로운 스마트 오피스 책상입니다. 장시간 근무자의 피로도를 낮춰줍니다.', 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>전동 모션데스크</h4><p>스마트 높낮이 책상</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('메쉬 사무용 의자', '허리를 편안하게 받쳐주는 고밀도 메쉬 소재의 프리미엄 오피스 체어입니다.', 'https://images.unsplash.com/photo-1580481077494-e3299ac25e94?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1580481077494-e3299ac25e94?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>메쉬 사무용 의자</h4><p>고밀도 허리지지 체어</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('대형 회의 테이블', '다수의 인원이 원활하게 회의할 수 있는 모던한 디자인의 대형 원목 테이블입니다.', 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>대형 회의 테이블</h4><p>모던 컨퍼런스 데스크</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('오피스 파티션', '공간 분리와 프라이버시 보호를 위한 깔끔한 패브릭/유리 파티션입니다.', 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>오피스 파티션</h4><p>공간 분할용 패브릭</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('팀장용 철제 책상', '서랍장이 포함되어 수납이 편리하고 내구성이 뛰어난 스틸 프레임 책상입니다.', 'https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>팀장용 철제 책상</h4><p>수납장 포함 스틸 책상</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('이중 등받이 회의용 의자', '방문객 및 회의실용으로 우수한 착석감을 자랑하는 세련된 체어입니다.', 'https://images.unsplash.com/photo-1541558855009-e655c3c0bc00?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1541558855009-e655c3c0bc00?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>이중 등받이 회의의자</h4><p>회의실용 체어</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('철제 문서 캐비닛', '중요 문서와 비품을 안전하게 보관할 수 있는 2단/3단 철제 수납장입니다.', 'https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>철제 문서 캐비닛</h4><p>안전한 비품 수납장</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('1인 집중형 독서실 책상', '독립된 공간에서 업무나 연구에 몰입할 수 있는 칸막이형 데스크입니다.', 'https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>1인 집중형 데스크</h4><p>독립형 몰입 책상</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('가죽 중역 의자', '고급 천연 가죽을 사용하여 중후한 멋과 최상의 편안함을 제공하는 체어입니다.', 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>가죽 중역 의자</h4><p>고급 임원실용 체어</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('모듈형 인포메이션 데스크', '사무실 입구나 안내데스크 공간에 맞게 조립 가능한 모듈형 가구입니다.', 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>인포메이션 데스크</h4><p>안내 및 접수처 가구</p></div>
-            </div>
-        </div>
+        <div id="office-grid" class="product-grid">데이터를 불러오는 중입니다...</div>
     </section>
 
-    <!-- 2. 업소 / 카페 가구 섹션 (10개 상품) -->
     <section id="cafe">
         <h2 class="section-title">업소 / 카페 가구 (Cafe & Restaurant)</h2>
-        <div class="product-grid">
-            <div class="product-card" onclick="openModal('원목 카페 테이블', '카페나 매장의 분위기를 한층 고급스럽게 만들어주는 원목 테이블 세트입니다.', 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>원목 카페 테이블</h4><p>빈티지 감성 매장용</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('하이바 체어 세트', '바 테이블이나 트렌디한 카페에 잘 어울리는 높낮이 조절 바 체어입니다.', 'https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>하이바 체어 세트</h4><p>카페 스툴</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('대리석 식당 테이블', '고급스러운 대리석 패턴으로 레스토랑과 식당에 품격을 더해줍니다.', 'https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>대리석 식당 테이블</h4><p>고급 레스토랑용</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('철제 업소용 의자', '튼튼한 스틸 구조로 업소에서 오래 사용할 수 있는 가성비 체어입니다.', 'https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>철제 업소용 의자</h4><p>내구성 강화 스틸</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('붙박이 카페 소파', '카페 벽면을 따라 아늑하고 넓은 좌석 배치를 완성하는 붙박이 소파입니다.', 'https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>붙박이 카페 소파</h4><p>공간 활용 벽면 소파</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('테라스 야외 원형 테이블', '카페 야외 테라스나 정원에 배치하기 좋은 방수 처리 테이블 세트입니다.', 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>테라스 야외 테이블</h4><p>방수 가공 테라스용</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('디저트 쇼케이스', '맛있는 빵과 디저트를 신선하게 돋보여주는 매장 진열대입니다.', 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>디저트 쇼케이스</h4><p>베이커리 매장 진열대</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('모던 카페 카운터', '카페 음료 제조와 주문을 동시에 처리하는 세련된 카운터입니다.', 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>모던 카페 카운터</h4><p>주문 및 제조 바 데스크</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('2인용 소형 원형 테이블', '아담한 카페나 테이크아웃 매장에 최적화된 컴팩트 테이블입니다.', 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>2인용 소형 테이블</h4><p>컴팩트 매장용</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('유아용 식당 의자', '가족 단위 손님을 위한 안전벨트 부착형 유아용 의자입니다.', 'https://images.unsplash.com/photo-1581539250439-c96689b516dd?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1581539250439-c96689b516dd?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>유아용 식당 의자</h4><p>안전 패키지 유아 체어</p></div>
-            </div>
-        </div>
+        <div id="cafe-grid" class="product-grid">데이터를 불러오는 중입니다...</div>
     </section>
 
-    <!-- 3. 행사 / 이벤트용 가구 섹션 (10개 상품) -->
     <section id="event">
         <h2 class="section-title">행사 / 이벤트용 가구 (Events)</h2>
-        <div class="product-grid">
-            <div class="product-card" onclick="openModal('접이식 행사 테이블', '대규모 세미나, 박람회, 야외 행사에 튼튼하고 간편하게 설치하는 접이식 세트입니다.', 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>접이식 행사 테이블</h4><p>박람회 및 세미나용</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('스타우트 접이식 의자', '가볍고 적재가 쉬워 대형 야외 행사나 체육대회에 필수적인 의자입니다.', 'https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>스타우트 접이식 의자</h4><p>야외 행사 및 체육대회</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('VIP 연회용 의자', '결혼식, 호텔 연회, 기업 기념식 등에 품격을 더하는 커버 일체형 체어입니다.', 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>VIP 연회용 의자</h4><p>결혼식 및 기념식용</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('원형 연회 테이블', '호텔 뷔페나 대규모 리셉션 파티에 적합한 원형 테이블입니다.', 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>원형 연회 테이블</h4><p>뷔페 및 파티용 식탁</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('캐노피 야외 천막', '축제나 야외 부스 운영 시 햇빛과 비를 막아주는 튼튼한 캐노피 천막입니다.', 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>캐노피 야외 천막</h4><p>축제 및 홍보 부스용</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('안내용 포스터 스탠드', '행사장 입구에서 안내문이나 동선을 안내하는 고급형 스탠드입니다.', 'https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>안내용 포스터 스탠드</h4><p>행사장 동선 안내용</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('세미나 강연대', '발표자가 서서 강연을 진행할 수 있는 모던한 포디움 연단입니다.', 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>세미나 강연대</h4><p>발표 및 강연용 포디움</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('이동식 백드롭 파티션', '행사 백드롭이나 공간 구획을 위해 빠르게 설치하는 파티션입니다.', 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>이동식 백드롭 파티션</h4><p>행사 구획용</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('야외 파라솔 테이블', '휴게 공간이나 야외 이벤트 존에 시원한 그늘을 제공하는 세트입니다.', 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>야외 파라솔 테이블</h4><p>휴게 존 파라솔 세트</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('케이터링 뷔페 테이블', '행사장에서 음식 온도를 따뜻하게 유지해주는 뷔페 전용 테이블입니다.', 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>케이터링 뷔페 테이블</h4><p>음식 온열 유지용</p></div>
-            </div>
-        </div>
+        <div id="event-grid" class="product-grid">데이터를 불러오는 중입니다...</div>
     </section>
 
-    <!-- 4. 로비 / 휴게실 가구 섹션 (10개 상품) -->
     <section id="lobby">
         <h2 class="section-title">로비 / 휴게실 가구 (Lobby & Lounge)</h2>
-        <div class="product-grid">
-            <div class="product-card" onclick="openModal('라운지 응접소파', '사옥 로비나 기업 휴게실에 방문객 맞이용으로 적합한 고품격 소파입니다.', 'https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>라운지 응접소파</h4><p>기업 로비 및 휴게실</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('1인용 리클라이너', '사무실 휴게실에서 완벽한 휴식을 취할 수 있는 안락한 체어입니다.', 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>1인용 리클라이너</h4><p>휴게실 전용 안락의자</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('모던 센터 테이블', '라운지 소파와 조화를 이루는 감각적인 디자인의 센터 테이블입니다.', 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>모던 센터 테이블</h4><p>소파용 보조 테이블</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('패브릭 3인 소파', '따뜻한 감성의 패브릭 소재로 사내 휴게 공간을 밝혀주는 소파입니다.', 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>패브릭 3인 소파</h4><p>따뜻한 감성 휴게실용</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('매거진 비치 랙', '사내 소식지와 잡지를 깔끔하게 비치할 수 있는 인테리어 랙입니다.', 'https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>매거진 비치 랙</h4><p>잡지 및 카탈로그 스탠드</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('플랜테리어 화분박스', '로비에 싱그러운 생기를 불어넣어주는 대형 플랜트 조경 박스입니다.', 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>플랜테리어 화분박스</h4><p>로비 조경 인테리어 가구</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('자판기 인테리어 부스', '사내 휴게실 음료 자판기를 깔끔하게 감싸주는 전용 인테리어 부스입니다.', 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>자판기 인테리어 부스</h4><p>휴게실 빌트인 마감재</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('라운지 바 스툴 세트', '간단한 차나 음료를 서서 마실 수 있는 라운지 바 테이블 세트입니다.', 'https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>라운지 바 스툴 세트</h4><p>간이 음료바 가구</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('탕비실 수납장', '정수기와 컵, 다과를 깔끔하게 정리하는 빌트인 스타일 수납장입니다.', 'https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>탕비실 수납장</h4><p>정수기 및 다과 보관대</p></div>
-            </div>
-            <div class="product-card" onclick="openModal('인테리어 루버 파티션', '공간을 아늑하게 나누어주는 세련된 루버디자인 파티션입니다.', 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=400&q=80" class="product-img">
-                <div class="product-info"><h4>인테리어 루버 파티션</h4><p>아늑한 공간 분할용</p></div>
-            </div>
-        </div>
+        <div id="lobby-grid" class="product-grid">데이터를 불러오는 중입니다...</div>
     </section>
 
     <!-- 온라인 견적 문의 섹션 -->
@@ -376,20 +209,20 @@
             <span class="close-btn" onclick="closeModal()">&times;</span>
             <img id="modalImg" src="" class="modal-img" alt="상세 이미지">
             <h3 id="modalTitle" class="modal-title">상품명</h3>
+            <div id="modalSpec" class="modal-spec">규격 정보</div>
             <p id="modalDesc" class="modal-desc">상세 설명</p>
             <a href="#quote" class="btn" onclick="closeModal()" style="width: 100%; text-align: center;">이 상품 견적 문의하기</a>
         </div>
     </div>
 
-    <!-- 푸터 (대표전화 등 정보) -->
+    <!-- 푸터 -->
     <footer>
         <p><strong>원가구렌탈</strong> | 대표전화: 031-000-0000 | 이메일: contact@wongagurental.com</p>
         <p style="margin-top: 8px; opacity: 0.7;">Copyright © Won Furniture Rental. All rights reserved.</p>
     </footer>
 
-    <!-- 자바스크립트 (슬라이드 및 팝업 제어) -->
+    <!-- 자바스크립트 -->
     <script>
-        // 상단 배너 자동 슬라이드
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
         function showNextSlide() {
@@ -399,27 +232,20 @@
         }
         setInterval(showNextSlide, 4000);
 
-        // 상품 클릭 시 상세 팝업 열기
-        function openModal(title, desc, imgSrc) {
+        function openModal(title, spec, desc, imgSrc) {
             document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalSpec').innerText = '규격: ' + spec;
             document.getElementById('modalDesc').innerText = desc;
             document.getElementById('modalImg').src = imgSrc;
             document.getElementById('productModal').style.display = 'flex';
         }
-
-        // 팝업 닫기
         function closeModal() {
             document.getElementById('productModal').style.display = 'none';
         }
-
-        // 팝업 바깥 영역 클릭 시 닫기
         window.onclick = function(event) {
             let modal = document.getElementById('productModal');
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
+            if (event.target == modal) { modal.style.display = 'none'; }
         }
     </script>
-
 </body>
 </html>
