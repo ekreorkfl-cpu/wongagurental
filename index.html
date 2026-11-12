@@ -14,14 +14,12 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; }
         body { color: var(--text-color); line-height: 1.6; background-color: #fff; scroll-behavior: smooth; }
         
-        /* 헤더 */
         header { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; background: white; z-index: 100; flex-wrap: wrap; gap: 10px; }
         .logo { font-size: 20px; font-weight: bold; color: var(--primary-color); text-decoration: none; white-space: nowrap; }
         nav { display: flex; flex-wrap: wrap; gap: 10px; }
         nav a { text-decoration: none; color: var(--text-color); font-weight: 550; font-size: 13px; white-space: nowrap; }
         nav a:hover { color: var(--accent-color); }
 
-        /* 상단 자동 슬라이드 배너 - 행사 진열대/가벽 위주 이미지 */
         .hero { position: relative; height: 400px; color: white; text-align: center; overflow: hidden; display: flex; align-items: center; justify-content: center; }
         .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 1s ease-in-out; z-index: 1; }
         .slide.active { opacity: 1; }
@@ -33,11 +31,9 @@
         .btn { display: inline-block; background-color: var(--accent-color); color: white; padding: 10px 22px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: 0.2s; cursor: pointer; border: none; text-align: center; font-size: 14px; }
         .btn:hover { background-color: #b7791f; }
 
-        /* 섹션 공통 */
         section { padding: 40px 5%; border-bottom: 1px solid #edf2f7; }
         .section-title { font-size: 22px; margin-bottom: 25px; color: var(--primary-color); border-left: 5px solid var(--accent-color); padding-left: 12px; }
 
-        /* 주요 렌탈 카테고리 4분할 그리드 */
         .main-categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
         .cat-main-card { background: var(--bg-light); border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0; transition: 0.3s; display: flex; flex-direction: column; box-shadow: 0 2px 4px rgba(0,0,0,0.02); text-decoration: none; color: inherit; }
         .cat-main-card:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0,0,0,0.08); border-color: var(--accent-color); }
@@ -46,7 +42,6 @@
         .cat-info h3 { font-size: 18px; margin-bottom: 6px; color: var(--primary-color); }
         .cat-info p { font-size: 13px; color: #718096; margin-bottom: 12px; }
 
-        /* 상품 그리드 칸 */
         .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; }
         .product-card { background: white; border-radius: 6px; border: 1px solid #e2e8f0; overflow: hidden; transition: 0.3s; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
         .product-card:hover { transform: translateY(-3px); box-shadow: 0 8px 12px rgba(0,0,0,0.08); }
@@ -55,7 +50,6 @@
         .product-info h4 { font-size: 14px; margin-bottom: 4px; color: var(--primary-color); }
         .product-info p { font-size: 11px; color: #718096; }
 
-        /* 상세 팝업 모달창 */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
         .modal-content { background: white; width: 100%; max-width: 500px; border-radius: 8px; padding: 25px; position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
         .close-btn { position: absolute; top: 12px; right: 18px; font-size: 22px; cursor: pointer; color: #a0aec0; }
@@ -65,7 +59,6 @@
         .modal-spec { font-size: 13px; font-weight: bold; color: var(--accent-color); margin-bottom: 10px; }
         .modal-desc { font-size: 14px; color: #4a5568; line-height: 1.6; margin-bottom: 20px; }
 
-        /* 견적 폼 섹션 */
         .quote-section { background-color: var(--bg-light); }
         form { max-width: 600px; margin: 0 auto; background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
         .form-group { margin-bottom: 15px; }
@@ -73,7 +66,6 @@
         .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #cbd5e0; border-radius: 4px; font-size: 14px; }
         .form-group textarea { height: 100px; }
 
-        /* 푸터 */
         footer { background: var(--primary-color); color: white; text-align: center; padding: 30px 20px; font-size: 13px; word-break: keep-all; }
 
         @media (min-width: 768px) {
@@ -88,7 +80,6 @@
 </head>
 <body>
 
-    <!-- 헤더 -->
     <header>
         <a href="#" class="logo">원가구렌탈</a>
         <nav>
@@ -101,7 +92,6 @@
         </nav>
     </header>
 
-    <!-- 상단 자동 슬라이드 배너 - 행사 진열대/가벽 이미지 적용 -->
     <div class="hero">
         <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1596526131083-e8c633c948d2?auto=format&fit=crop&w=1600&q=80');"></div>
         <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1582213713723-39328a6f987a?auto=format&fit=crop&w=1600&q=80');"></div>
@@ -115,7 +105,6 @@
         </div>
     </div>
 
-    <!-- 주요 렌탈 카테고리 4분할 -->
     <section id="categories">
         <h2 class="section-title">주요 렌탈 카테고리</h2>
         <div class="main-categories">
@@ -162,7 +151,6 @@
         </div>
     </section>
 
-    <!-- 구글 시트 연동 상품 출력 영역 -->
     <section id="event">
         <h2 class="section-title">행사 / 이벤트용 가구 (Events)</h2>
         <div id="event-grid" class="product-grid">데이터를 불러오는 중입니다...</div>
@@ -183,7 +171,6 @@
         <div id="lobby-grid" class="product-grid">데이터를 불러오는 중입니다...</div>
     </section>
 
-    <!-- 견적 문의 섹션 -->
     <section id="quote" class="quote-section">
         <h2 class="section-title" style="border-left-color: var(--primary-color);">온라인 견적 문의</h2>
         <form onsubmit="alert('견적 문의가 정상적으로 접수되었습니다. 확인 후 빠른 연락 드리겠습니다.'); return false;">
@@ -203,7 +190,6 @@
         </form>
     </section>
 
-    <!-- 상세 보기 모달 창 -->
     <div id="productModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
@@ -215,13 +201,11 @@
         </div>
     </div>
 
-    <!-- 푸터 -->
     <footer>
         <p><strong>원가구렌탈</strong> | 대표전화: 031-000-0000 | 이메일: contact@wongagurental.com</p>
         <p style="margin-top: 8px; opacity: 0.7;">Copyright © Won Furniture Rental. All rights reserved.</p>
     </footer>
 
-    <!-- 자바스크립트: 구글 시트 연동 로직 -->
     <script>
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
@@ -233,7 +217,7 @@
         setInterval(showNextSlide, 4000);
 
         function openModal(title, spec, desc, imgSrc) {
-            document.getElementById('modalTitle সন্ত্রাসী' || 'modalTitle').innerText = title;
+            document.getElementById('modalTitle').innerText = title;
             document.getElementById('modalSpec').innerText = '규격: ' + spec;
             document.getElementById('modalDesc').innerText = desc;
             document.getElementById('modalImg').src = imgSrc;
@@ -248,8 +232,8 @@
         }
 
         async function loadGoogleSheetData() {
-            // 방금 생성한 방법 2안 구글 시트 ID 적용 완료
-            const sheetId = '1BCLFmoGnkgvKeV98TJO_bgj54tSMT9NuNTXlG52mpyo';
+            // 원본 구글 시트 ID 적용 (공유 권한 열려있는 시트)
+            const sheetId = '12E6edU9-tfx7MsOZiTy5fVGpfgZ8UGjzDIlj_6wzI6g';
             const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json`;
 
             try {
